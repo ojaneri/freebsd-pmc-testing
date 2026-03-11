@@ -29,8 +29,8 @@ The FreeBSD PMC Kernel Test Framework provides a complete testing infrastructure
 
 ```bash
 # Clone the repository
-git clone https://github.com/example/pmc-testing.git
-cd pmc-testing
+git clone https://github.com/ojaneri/freebsd-pmc-testing.git
+cd freebsd-pmc-testing
 
 # Build the library
 make lib
@@ -53,6 +53,12 @@ make test-basic
 
 # Run kernel tests only
 make test-kernel
+
+# Run L3 cache tests only
+make test-l3
+
+# Run Data Fabric (DF) tests only
+make test-df
 ```
 
 ### Installation
@@ -77,7 +83,9 @@ pmc-testing/
 │   └── pmc_test_framework.c
 ├── tests/             # Test cases
 │   ├── pmc_tests_basic.c
-│   └── pmc_tests_kernel.c
+│   ├── pmc_tests_kernel.c
+│   ├── pmc_tests_l3.c           # L3 Cache (Core) tests
+│   └── pmc_tests_uncore_df.c    # Data Fabric (Zen4/Zen5+) tests
 ├── examples/          # Example programs
 ├── docs/              # Documentation
 ├── scripts/           # Utility scripts
